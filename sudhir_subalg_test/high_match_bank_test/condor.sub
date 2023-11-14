@@ -1,0 +1,20 @@
+Universe = vanilla
+Executable = shell.sh
+arguments = sub_alg_bank_condor2.py $(Process)
+transfer_input_files = testNonSpin999.xml, injection_sub_alg_new.txt, sub_alg_bank_condor2.py
+
+getenv = True
+
+log = log/$(Cluster)-$(Process).log
+Output = out/$(Cluster)-$(Process).out
+Error = err/$(Cluster)-$(Process).err
+
+initialdir = /home/sudhir.gholap/sub_alg_dense_bank/high_match_bank_test
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT
+
+accounting_group = iucaa.grad_project
+
+requestmemory = 20GB
+
+Queue 900
